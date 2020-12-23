@@ -17,14 +17,20 @@ const App = () => {
 
 const Hi = (props) => {
   console.log(props);
-  const signout = () => {
-    console.log("ok");
-    props.logout();
-  }
+
   return(
     <div style={{margin:"10%"}}>
-      <p>{props.user.email}</p>
-      <button onClick={() => signout()}>logout</button>
+      {props.user ?
+        <div>
+          <p>{props.user.email}</p>
+          <button onClick={() => props.logout()}>logout</button>
+        </div>
+      : 
+        <div>
+          <button onClick={() => props.login()}>login</button>
+        </div>
+      }
+
     </div>
   )
 }

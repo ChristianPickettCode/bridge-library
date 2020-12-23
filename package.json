@@ -4,7 +4,10 @@
   "description": "eso bridge library",
   "author": "ChristianPickettCode",
   "license": "MIT",
-  "repository": "ChristianPickettCode/@esotterik/bridge-library",
+  "repository": {
+    "type": "git",
+    "url": "ChristianPickettCode/@esotterik/bridge-library"
+  },
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.js",
@@ -52,7 +55,11 @@
   ],
   "dependencies": {
     "crypto-js": "^4.0.0",
+    "evergreen-ui": "^5.1.2",
     "qrcode.react": "^1.0.0",
     "websocket": "^1.0.33"
+  },
+  "directories": {
+    "example": "example"
   }
 }
