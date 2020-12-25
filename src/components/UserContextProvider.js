@@ -54,7 +54,7 @@ const UserContextProvider = (props) => {
         localStorage.setItem("user", 
             JSON.stringify(d)
         )
-        console.log(d);
+        // console.log(d);
         response(d);
     }
 
@@ -69,13 +69,12 @@ const UserContextProvider = (props) => {
     }
 
     const openWS = () => {
-        console.log(props.request)
         const isUser = getUser();
         if (!isUser) {
             setRequestString(props.request.data.join("&"));
             const ws = new W3CWebSocket(`wss://u9j9kermu5.execute-api.us-east-1.amazonaws.com/dev`);
             ws.onopen = () =>  {
-                console.log("connected.");
+                // console.log("connected.");
                 ws.send(JSON.stringify({
                     message: "connect",
                     action: "message"
@@ -83,7 +82,7 @@ const UserContextProvider = (props) => {
             };
 
             ws.onclose = () => {
-                console.log("disconnected.");
+                // console.log("disconnected.");
             };
 
             ws.onmessage = (msg) =>  {
@@ -121,12 +120,11 @@ const UserContextProvider = (props) => {
               header={<div style={{margin:"auto"}}><p style={{margin:"0"}}>Connect</p></div>}
               hasFooter={false}
               onCloseComplete={() => setIsShown(false) }
-              confirmLabel="Custom Label"
-              width={200}
+              width={290}
               >
               { id ? 
-                  <div style={{width:"128px", margin:"auto"}}>
-                      <QRCode style={{margin:"auto"}} fgColor="#282c34" value={`${url}/welcome/${id}/?${requestString}&appName=${props.request.appName}&appID=${props.request.appID}`}  onClick={() => console.log(id)}/>
+                  <div style={{width:"256px", margin:"auto"}}>
+                      <QRCode size={256}  style={{margin:"auto"}} fgColor="#282c34" value={`${url}/welcome/${id}/?${requestString}&appName=${props.request.appName}&appID=${props.request.appID}`}  onClick={() => console.log(id)}/>
                   </div>
               : ""}
                   

@@ -4,6 +4,7 @@ import Bridge from '@esotterik/bridge-library'
 import '@esotterik/bridge-library/dist/index.css'
 
 const App = () => {
+
   return (
     <Bridge request={{
       data: ["email", "name"],
@@ -16,8 +17,6 @@ const App = () => {
 }
 
 const Hi = (props) => {
-  console.log(props);
-
   return(
     <div style={{margin:"10%"}}>
       {props.user ?
